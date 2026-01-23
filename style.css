@@ -71,7 +71,7 @@ label {
 }
 
 input[type="color"] {
-    ㅣ: none;
+    -webkit-appearance: none;
     width: 44px;
     height: 44px;
     border: none;
@@ -133,4 +133,51 @@ button:hover {
         width: 100%;
         max-width: 400px;
     }
+}
+
+.shapes-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+}
+
+.shape {
+    width: 100px;
+    height: 100px;
+}
+
+.shape-circle {
+    background-color: var(--accent-color);
+    border-radius: 50%;
+}
+
+.shape-square {
+    background-color: var(--accent-color);
+}
+
+.shape-triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid var(--accent-color);
+    background-color: transparent;
+}
+
+.shape-rectangle {
+    width: 150px;
+    height: 100px;
+    background-color: var(--accent-color);
+}
+
+.shape-oval {
+    width: 150px;
+    height: 100px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
 }
