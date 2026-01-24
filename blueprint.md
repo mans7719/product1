@@ -30,7 +30,10 @@ This document outlines the plan for transforming the project into a "Cute Cookin
     *   Short Description
     *   Difficulty Level (using stars or hearts)
     *   Cooking Time
-*   **Interactive Elements:** Hover effects on cards (scaling, bouncing).
+    *   **Ingredients List (Expandable):** Click to reveal required ingredients.
+*   **Interactive Elements:**
+    *   Hover effects on cards (scaling, bouncing).
+    *   **Click Interaction:** Cards expand to show details with a smooth animation.
 
 ### Technical Architecture
 
