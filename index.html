@@ -1,40 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wallpaper Generator</title>
+    <title>오늘 뭐 먹지? | Yummy Recipes</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Gamja Flower (Cute handwriting style) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/css2">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Wallpaper Generator</h1>
-    </header>
-    <main>
-        <div class="controls">
-            <h2>Controls</h2>
-            <div class="color-picker-container">
-                <label for="color1">Color 1:</label>
-                <input type="color" id="color1" value="#ff0000">
-            </div>
-            <div class="color-picker-container">
-                <label for="color2">Color 2:</label>
-                <input type="color" id="color2" value="#0000ff">
-            </div>
-            <button id="randomize">Randomize</button>
-            <button id="download">Download</button>
-        </div>
-        <div class="preview">
-            <canvas id="canvas"></canvas>
-        </div>
-        <div class="shapes-container">
-            <div class="shape shape-circle"></div>
-            <div class="shape shape-square"></div>
-            <div class="shape shape-triangle"></div>
-            <div class="shape shape-rectangle"></div>
-            <div class="shape shape-oval"></div>
-        </div>
-    </main>
-    <script src="main.js"></script>
+    <div class="app-container">
+        <header>
+            <h1 class="title">🍽️ 오늘 뭐 먹지?</h1>
+            <p class="subtitle">기분 좋아지는 귀여운 레시피 5가지</p>
+        </header>
+        
+        <main>
+            <!-- Web Component Container -->
+            <recipe-list></recipe-list>
+        </main>
+
+        <footer>
+            <p>Made with 💖 & 🍭</p>
+        </footer>
+    </div>
+    <script src="main.js" type="module"></script>
 </body>
 </html>
