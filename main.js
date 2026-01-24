@@ -1,29 +1,184 @@
-// 풍성해진 귀여운 요리 데이터
+// 다국어 지원을 위한 레시피 데이터
 const allRecipes = [
     // Morning (아침)
-    { id: 101, type: "morning", title: "곰돌이 오므라이스", emoji: "🐻", desc: "계란 이불을 덮은 잠자는 곰돌이", time: "30분", level: "⭐⭐", ingredients: ["계란 2개", "밥 1공기", "다진 야채", "케첩", "김"] },
-    { id: 102, type: "morning", title: "스마일 샌드위치", emoji: "🥪", desc: "햄과 치즈로 만든 웃는 얼굴", time: "10분", level: "⭐", ingredients: ["식빵 2장", "슬라이스 햄", "치즈", "딸기잼", "마요네즈"] },
-    { id: 103, type: "morning", title: "구름 팬케이크", emoji: "🥞", desc: "폭신폭신 구름 같은 수플레", time: "40분", level: "⭐⭐⭐", ingredients: ["계란 2개", "설탕 2스푼", "밀가루", "우유", "버터"] },
-    { id: 104, type: "morning", title: "토끼 베이글", emoji: "🥯", desc: "크림치즈 바른 토끼 얼굴 베이글", time: "15분", level: "⭐", ingredients: ["베이글", "크림치즈", "블루베리(눈)", "아몬드(귀)"] },
-    { id: 105, type: "morning", title: "병아리 삶은 계란", emoji: "🐣", desc: "검은깨 눈을 가진 귀여운 병아리", time: "15분", level: "⭐", ingredients: ["계란", "검은깨", "당근(부리)"] },
-    { id: 106, type: "morning", title: "요거트 파르페", emoji: "🍨", desc: "과일이 듬뿍 들어간 상큼한 아침", time: "10분", level: "⭐", ingredients: ["요거트", "그래놀라", "제철 과일", "꿀"] },
+    { 
+        id: 101, type: "morning", emoji: "🐻", 
+        title: "곰돌이 오므라이스", title_en: "Bear Omurice",
+        desc: "계란 이불을 덮은 잠자는 곰돌이", desc_en: "Sleeping bear covered with egg blanket",
+        time: "30분", time_en: "30min", level: "⭐⭐", 
+        ingredients: ["계란 2개", "밥 1공기", "다진 야채", "케첩", "김"],
+        ingredients_en: ["2 Eggs", "1 Bowl of Rice", "Chopped Veggies", "Ketchup", "Seaweed"]
+    },
+    { 
+        id: 102, type: "morning", emoji: "🥪", 
+        title: "스마일 샌드위치", title_en: "Smile Sandwich",
+        desc: "햄과 치즈로 만든 웃는 얼굴", desc_en: "Smiling face made with ham & cheese",
+        time: "10분", time_en: "10min", level: "⭐", 
+        ingredients: ["식빵 2장", "슬라이스 햄", "치즈", "딸기잼", "마요네즈"],
+        ingredients_en: ["2 Bread Slices", "Ham Slice", "Cheese", "Strawberry Jam", "Mayonnaise"]
+    },
+    { 
+        id: 103, type: "morning", emoji: "🥞", 
+        title: "구름 팬케이크", title_en: "Cloud Pancake",
+        desc: "폭신폭신 구름 같은 수플레", desc_en: "Fluffy souffle like a cloud",
+        time: "40분", time_en: "40min", level: "⭐⭐⭐", 
+        ingredients: ["계란 2개", "설탕 2스푼", "밀가루", "우유", "버터"],
+        ingredients_en: ["2 Eggs", "2 Spoon Sugar", "Flour", "Milk", "Butter"]
+    },
+    { 
+        id: 104, type: "morning", emoji: "🥯", 
+        title: "토끼 베이글", title_en: "Bunny Bagel",
+        desc: "크림치즈 바른 토끼 얼굴 베이글", desc_en: "Bunny face bagel with cream cheese",
+        time: "15분", time_en: "15min", level: "⭐", 
+        ingredients: ["베이글", "크림치즈", "블루베리(눈)", "아몬드(귀)"],
+        ingredients_en: ["Bagel", "Cream Cheese", "Blueberries (Eyes)", "Almonds (Ears)"]
+    },
+    { 
+        id: 105, type: "morning", emoji: "🐣", 
+        title: "병아리 삶은 계란", title_en: "Chick Boiled Egg",
+        desc: "검은깨 눈을 가진 귀여운 병아리", desc_en: "Cute chick with sesame eyes",
+        time: "15분", time_en: "15min", level: "⭐", 
+        ingredients: ["계란", "검은깨", "당근(부리)"],
+        ingredients_en: ["Egg", "Black Sesame", "Carrot (Beak)"]
+    },
+    { 
+        id: 106, type: "morning", emoji: "🍨", 
+        title: "요거트 파르페", title_en: "Yogurt Parfait",
+        desc: "과일이 듬뿍 들어간 상큼한 아침", desc_en: "Fresh morning with fruits",
+        time: "10분", time_en: "10min", level: "⭐", 
+        ingredients: ["요거트", "그래놀라", "제철 과일", "꿀"],
+        ingredients_en: ["Yogurt", "Granola", "Seasonal Fruits", "Honey"]
+    },
 
     // Lunch (점심)
-    { id: 201, type: "lunch", title: "토끼 카레", emoji: "🐰", desc: "당근을 좋아하는 토끼 밥", time: "45분", level: "⭐⭐", ingredients: ["고형 카레", "감자", "당근", "양파", "밥", "김"] },
-    { id: 202, type: "lunch", title: "하트 볶음밥", emoji: "💖", desc: "사랑이 가득 담긴 김치볶음밥", time: "20분", level: "⭐", ingredients: ["신김치", "밥 1공기", "참치/햄", "계란", "참기름"] },
-    { id: 203, type: "lunch", title: "문어 소세지 도시락", emoji: "🐙", desc: "다리가 8개인 귀여운 문어 소세지", time: "30분", level: "⭐", ingredients: ["비엔나 소세지", "밥", "계란말이", "브로콜리"] },
-    { id: 204, type: "lunch", title: "고양이 주먹밥", emoji: "🐱", desc: "참치마요가 들어간 냥냥 주먹밥", time: "25분", level: "⭐", ingredients: ["밥", "참치마요", "김", "슬라이스 치즈"] },
-    { id: 205, type: "lunch", title: "달팽이 김밥", emoji: "🐌", desc: "동글동글 말린 꼬마 김밥", time: "50분", level: "⭐⭐⭐", ingredients: ["김", "밥", "슬라이스 햄", "치즈", "시금치"] },
-    { id: 206, type: "lunch", title: "병아리 파스타", emoji: "🍝", desc: "옥수수 크림으로 만든 노란 파스타", time: "35분", level: "⭐⭐", ingredients: ["파스타면", "옥수수 스프", "우유", "양파", "베이컨"] },
+    { 
+        id: 201, type: "lunch", emoji: "🐰", 
+        title: "토끼 카레", title_en: "Bunny Curry",
+        desc: "당근을 좋아하는 토끼 밥", desc_en: "Rabbit rice loving carrots",
+        time: "45분", time_en: "45min", level: "⭐⭐", 
+        ingredients: ["고형 카레", "감자", "당근", "양파", "밥", "김"],
+        ingredients_en: ["Curry Roux", "Potato", "Carrot", "Onion", "Rice", "Seaweed"]
+    },
+    { 
+        id: 202, type: "lunch", emoji: "💖", 
+        title: "하트 볶음밥", title_en: "Heart Fried Rice",
+        desc: "사랑이 가득 담긴 김치볶음밥", desc_en: "Kimchi fried rice full of love",
+        time: "20분", time_en: "20min", level: "⭐", 
+        ingredients: ["신김치", "밥 1공기", "참치/햄", "계란", "참기름"],
+        ingredients_en: ["Kimchi", "1 Bowl of Rice", "Tuna/Ham", "Egg", "Sesame Oil"]
+    },
+    { 
+        id: 203, type: "lunch", emoji: "🐙", 
+        title: "문어 소세지 도시락", title_en: "Octopus Sausage Box",
+        desc: "다리가 8개인 귀여운 문어 소세지", desc_en: "Cute octopus sausage with 8 legs",
+        time: "30분", time_en: "30min", level: "⭐", 
+        ingredients: ["비엔나 소세지", "밥", "계란말이", "브로콜리"],
+        ingredients_en: ["Vienna Sausage", "Rice", "Rolled Omelet", "Broccoli"]
+    },
+    { 
+        id: 204, type: "lunch", emoji: "🐱", 
+        title: "고양이 주먹밥", title_en: "Cat Rice Ball",
+        desc: "참치마요가 들어간 냥냥 주먹밥", desc_en: "Meow rice ball with tuna mayo",
+        time: "25분", time_en: "25min", level: "⭐", 
+        ingredients: ["밥", "참치마요", "김", "슬라이스 치즈"],
+        ingredients_en: ["Rice", "Tuna Mayo", "Seaweed", "Sliced Cheese"]
+    },
+    { 
+        id: 205, type: "lunch", emoji: "🐌", 
+        title: "달팽이 김밥", title_en: "Snail Kimbap",
+        desc: "동글동글 말린 꼬마 김밥", desc_en: "Round rolled mini kimbap",
+        time: "50분", time_en: "50min", level: "⭐⭐⭐", 
+        ingredients: ["김", "밥", "슬라이스 햄", "치즈", "시금치"],
+        ingredients_en: ["Seaweed", "Rice", "Ham Slice", "Cheese", "Spinach"]
+    },
+    { 
+        id: 206, type: "lunch", emoji: "🍝", 
+        title: "병아리 파스타", title_en: "Chick Pasta",
+        desc: "옥수수 크림으로 만든 노란 파스타", desc_en: "Yellow pasta with corn cream",
+        time: "35분", time_en: "35min", level: "⭐⭐", 
+        ingredients: ["파스타면", "옥수수 스프", "우유", "양파", "베이컨"],
+        ingredients_en: ["Pasta Noodles", "Corn Soup", "Milk", "Onion", "Bacon"]
+    },
 
     // Dinner (저녁)
-    { id: 301, type: "dinner", title: "곰돌이 함박스테이크", emoji: "🍖", desc: "육즙 가득 든든한 저녁 식사", time: "60분", level: "⭐⭐⭐", ingredients: ["다진 소고기", "양파", "빵가루", "스테이크 소스"] },
-    { id: 302, type: "dinner", title: "꽃게 소세지 볶음", emoji: "🦀", desc: "매콤달콤한 소세지 야채 볶음", time: "30분", level: "⭐⭐", ingredients: ["비엔나 소세지", "파프리카", "양파", "케첩", "고추장"] },
-    { id: 303, type: "dinner", title: "별님 피자", emoji: "🍕", desc: "또띠아로 만든 바삭한 별 피자", time: "25분", level: "⭐⭐", ingredients: ["또띠아", "토마토 소스", "피자 치즈", "페퍼로니"] },
-    { id: 304, type: "dinner", title: "잠자는 곰돌이 카레", emoji: "🍛", desc: "따뜻한 이불을 덮은 곰돌이", time: "50분", level: "⭐⭐", ingredients: ["카레", "감자", "고기", "당근", "밥"] },
-    { id: 305, type: "dinner", title: "공룡 치킨 너겟", emoji: "🦕", desc: "용가리 치킨과 감자 튀김", time: "20분", level: "⭐", ingredients: ["치킨 너겟", "감자 튀김", "머스타드 소스", "샐러드"] },
-    { id: 306, type: "dinner", title: "따뜻한 스프와 빵", emoji: "🍲", desc: "하루를 마무리하는 따뜻한 스프", time: "40분", level: "⭐⭐", ingredients: ["양송이 버섯", "우유", "생크림", "바게트"] }
+    { 
+        id: 301, type: "dinner", emoji: "🍖", 
+        title: "곰돌이 함박스테이크", title_en: "Bear Hamburger Steak",
+        desc: "육즙 가득 든든한 저녁 식사", desc_en: "Juicy and hearty dinner",
+        time: "60분", time_en: "60min", level: "⭐⭐⭐", 
+        ingredients: ["다진 소고기", "양파", "빵가루", "스테이크 소스"],
+        ingredients_en: ["Minced Beef", "Onion", "Breadcrumbs", "Steak Sauce"]
+    },
+    { 
+        id: 302, type: "dinner", emoji: "🦀", 
+        title: "꽃게 소세지 볶음", title_en: "Crab Sausage Stir-fry",
+        desc: "매콤달콤한 소세지 야채 볶음", desc_en: "Sweet & spicy sausage stir-fry",
+        time: "30분", time_en: "30min", level: "⭐⭐", 
+        ingredients: ["비엔나 소세지", "파프리카", "양파", "케첩", "고추장"],
+        ingredients_en: ["Vienna Sausage", "Paprika", "Onion", "Ketchup", "Gochujang"]
+    },
+    { 
+        id: 303, type: "dinner", emoji: "🍕", 
+        title: "별님 피자", title_en: "Star Pizza",
+        desc: "또띠아로 만든 바삭한 별 피자", desc_en: "Crispy star pizza made with tortilla",
+        time: "25분", time_en: "25min", level: "⭐⭐", 
+        ingredients: ["또띠아", "토마토 소스", "피자 치즈", "페퍼로니"],
+        ingredients_en: ["Tortilla", "Tomato Sauce", "Pizza Cheese", "Pepperoni"]
+    },
+    { 
+        id: 304, type: "dinner", emoji: "🍛", 
+        title: "잠자는 곰돌이 카레", title_en: "Sleeping Bear Curry",
+        desc: "따뜻한 이불을 덮은 곰돌이", desc_en: "Bear covered with warm blanket",
+        time: "50분", time_en: "50min", level: "⭐⭐", 
+        ingredients: ["카레", "감자", "고기", "당근", "밥"],
+        ingredients_en: ["Curry", "Potato", "Meat", "Carrot", "Rice"]
+    },
+    { 
+        id: 305, type: "dinner", emoji: "🦕", 
+        title: "공룡 치킨 너겟", title_en: "Dino Chicken Nuggets",
+        desc: "용가리 치킨과 감자 튀김", desc_en: "Dino nuggets and french fries",
+        time: "20분", time_en: "20min", level: "⭐", 
+        ingredients: ["치킨 너겟", "감자 튀김", "머스타드 소스", "샐러드"],
+        ingredients_en: ["Chicken Nuggets", "French Fries", "Mustard Sauce", "Salad"]
+    },
+    { 
+        id: 306, type: "dinner", emoji: "🍲", 
+        title: "따뜻한 스프와 빵", title_en: "Warm Soup & Bread",
+        desc: "하루를 마무리하는 따뜻한 스프", desc_en: "Warm soup to end the day",
+        time: "40분", time_en: "40min", level: "⭐⭐", 
+        ingredients: ["양송이 버섯", "우유", "생크림", "바게트"],
+        ingredients_en: ["Button Mushroom", "Milk", "Heavy Cream", "Baguette"]
+    }
 ];
+
+// UI Translations
+const translations = {
+    ko: {
+        title: "🍽️ 오늘 뭐 먹지?",
+        subtitle: "기분 좋아지는 귀여운 레시피 5가지",
+        btn_all: "✨ 전체",
+        btn_morning: "☀️ 아침",
+        btn_lunch: "🍱 점심",
+        btn_dinner: "🌙 저녁",
+        footer: "Made with 💖 & 🍭",
+        lang_btn: "🇺🇸 English",
+        ingredients_label: "🧺 준비물"
+    },
+    en: {
+        title: "🍽️ What to Eat?",
+        subtitle: "5 Cute Recipes to Brighten Your Day",
+        btn_all: "✨ All",
+        btn_morning: "☀️ Morning",
+        btn_lunch: "🍱 Lunch",
+        btn_dinner: "🌙 Dinner",
+        footer: "Made with 💖 & 🍭",
+        lang_btn: "🇰🇷 한국어",
+        ingredients_label: "🧺 Ingredients"
+    }
+};
+
+let currentLang = "ko"; // Default language
+let currentFilter = "all"; // Current filter state
 
 // Utility: Shuffle Array and Pick N items
 function getRandomRecipes(type, count = 5) {
@@ -36,7 +191,7 @@ function getRandomRecipes(type, count = 5) {
     return shuffled.slice(0, count);
 }
 
-// Recipe Card Component (기존 유지)
+// Recipe Card Component
 class RecipeCard extends HTMLElement {
     constructor() {
         super();
@@ -76,7 +231,14 @@ class RecipeCard extends HTMLElement {
     render() {
         if (!this.recipe) return;
 
-        const ingredientList = this.recipe.ingredients
+        // 언어에 맞는 데이터 선택
+        const title = currentLang === 'ko' ? this.recipe.title : this.recipe.title_en;
+        const desc = currentLang === 'ko' ? this.recipe.desc : this.recipe.desc_en;
+        const time = currentLang === 'ko' ? this.recipe.time : this.recipe.time_en;
+        const ingredients = currentLang === 'ko' ? this.recipe.ingredients : this.recipe.ingredients_en;
+        const ingredientsLabel = translations[currentLang].ingredients_label;
+
+        const ingredientList = ingredients
             .map(ing => `<li>🥕 ${ing}</li>`)
             .join('');
 
@@ -156,14 +318,6 @@ class RecipeCard extends HTMLElement {
                     font-size: 1rem;
                     color: #FF8A80;
                 }
-                .badge {
-                    font-size: 0.9rem;
-                    padding: 2px 8px;
-                    border-radius: 8px;
-                    background: #FFF3E0;
-                    color: #FF9800;
-                    margin-left: 10px;
-                }
                 /* Ingredients Section */
                 .ingredients-container {
                     max-height: 0;
@@ -200,19 +354,19 @@ class RecipeCard extends HTMLElement {
                     <div class="emoji">${this.recipe.emoji}</div>
                     <div class="info">
                         <h2>
-                            ${this.recipe.title} 
+                            ${title} 
                             <span class="arrow">▼</span>
                         </h2>
-                        <p>${this.recipe.desc}</p>
+                        <p>${desc}</p>
                         <div class="meta">
-                            <span>⏳ ${this.recipe.time}</span>
+                            <span>⏳ ${time}</span>
                             <span>${this.recipe.level}</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="ingredients-container">
-                    <div class="ingredients-title">🧺 준비물</div>
+                    <div class="ingredients-title">${ingredientsLabel}</div>
                     <ul>
                         ${ingredientList}
                     </ul>
@@ -225,26 +379,47 @@ class RecipeCard extends HTMLElement {
 // Recipe List Component
 class RecipeList extends HTMLElement {
     connectedCallback() {
-        this.renderRecipes('all'); // 초기값: 전체 랜덤
+        this.renderRecipes('all');
         
-        // 버튼 이벤트 리스너 등록
+        // 필터 버튼 이벤트
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                // 버튼 스타일 업데이트
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 e.target.classList.add('active');
-
-                // 레시피 갱신
-                const type = e.target.dataset.type;
-                this.renderRecipes(type);
+                
+                currentFilter = e.target.dataset.type;
+                this.renderRecipes(currentFilter);
             });
+        });
+
+        // 언어 전환 버튼 이벤트
+        const langBtn = document.getElementById('lang-toggle');
+        langBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'ko' ? 'en' : 'ko';
+            this.updateLanguage();
+            this.renderRecipes(currentFilter); // 현재 필터 상태 유지하며 다시 그리기
         });
     }
 
-    renderRecipes(type) {
-        // 기존 내용 지우기
-        this.innerHTML = '';
+    updateLanguage() {
+        const t = translations[currentLang];
         
+        // 정적 텍스트 업데이트
+        document.getElementById('app-title').textContent = t.title;
+        document.getElementById('app-subtitle').textContent = t.subtitle;
+        document.getElementById('btn-all').textContent = t.btn_all;
+        document.getElementById('btn-morning').textContent = t.btn_morning;
+        document.getElementById('btn-lunch').textContent = t.btn_lunch;
+        document.getElementById('btn-dinner').textContent = t.btn_dinner;
+        document.getElementById('footer-text').textContent = t.footer;
+        document.getElementById('lang-toggle').textContent = t.lang_btn;
+
+        // HTML 태그의 lang 속성 변경 (웹 접근성)
+        document.documentElement.lang = currentLang;
+    }
+
+    renderRecipes(type) {
+        this.innerHTML = '';
         const selectedRecipes = getRandomRecipes(type);
 
         selectedRecipes.forEach((recipe, index) => {

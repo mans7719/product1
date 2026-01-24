@@ -23,6 +23,7 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    position: relative;
 }
 
 .app-container {
@@ -31,6 +32,29 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* Language Button */
+.lang-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border: 2px solid #FFDAC1;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-family: 'Gamja Flower', cursive;
+    font-size: 1rem;
+    color: #8D6E63;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+
+.lang-btn:hover {
+    transform: translateY(-2px);
+    background-color: #FFF9E6;
 }
 
 header {
@@ -112,4 +136,16 @@ footer {
 @keyframes pop {
     0% { transform: scale(0.95); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 480px) {
+    .lang-btn {
+        top: 10px;
+        right: 10px;
+        font-size: 0.9rem;
+        padding: 5px 10px;
+    }
+    .title {
+        font-size: 2.5rem;
+    }
 }

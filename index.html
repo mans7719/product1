@@ -11,18 +11,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Language Toggle Button -->
+    <button id="lang-toggle" class="lang-btn" aria-label="Switch Language">🇺🇸 English</button>
+
     <div class="app-container">
         <header>
-            <h1 class="title">🍽️ 오늘 뭐 먹지?</h1>
-            <p class="subtitle">기분 좋아지는 귀여운 레시피 5가지</p>
+            <h1 class="title" id="app-title">🍽️ 오늘 뭐 먹지?</h1>
+            <p class="subtitle" id="app-subtitle">기분 좋아지는 귀여운 레시피 5가지</p>
         </header>
         
         <main>
             <nav class="filters">
-                <button class="filter-btn active" data-type="all">✨ 전체</button>
-                <button class="filter-btn" data-type="morning">☀️ 아침</button>
-                <button class="filter-btn" data-type="lunch">🍱 점심</button>
-                <button class="filter-btn" data-type="dinner">🌙 저녁</button>
+                <button class="filter-btn active" data-type="all" id="btn-all">✨ 전체</button>
+                <button class="filter-btn" data-type="morning" id="btn-morning">☀️ 아침</button>
+                <button class="filter-btn" data-type="lunch" id="btn-lunch">🍱 점심</button>
+                <button class="filter-btn" data-type="dinner" id="btn-dinner">🌙 저녁</button>
             </nav>
 
             <!-- Web Component Container -->
@@ -30,7 +33,7 @@
         </main>
 
         <footer>
-            <p>Made with 💖 & 🍭</p>
+            <p id="footer-text">Made with 💖 & 🍭</p>
         </footer>
     </div>
     <script src="main.js" type="module"></script>

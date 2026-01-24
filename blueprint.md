@@ -27,6 +27,9 @@ This document outlines the plan for transforming the project into a "Cute Cookin
 *   **Meal Time Randomizer:**
     *   Buttons for **Morning (아침)**, **Lunch (점심)**, **Dinner (저녁)**.
     *   Clicking a button randomly selects 5 recipes suitable for that meal time from a larger pool.
+*   **Internationalization (Global Support):**
+    *   Language toggle button (🇰🇷 Korean ↔ 🇺🇸 English).
+    *   Translates all UI elements and recipe content dynamically.
 *   **Recipe Card:** Each card shows:
     *   Food Icon (Emoji)
     *   Title (e.g., "Bear Omurice")
