@@ -24,6 +24,9 @@ This document outlines the plan for transforming the project into a "Cute Cookin
 ### Features
 
 *   **Recipe List:** Displays 5 curated recipes.
+*   **Meal Time Randomizer:**
+    *   Buttons for **Morning (아침)**, **Lunch (점심)**, **Dinner (저녁)**.
+    *   Clicking a button randomly selects 5 recipes suitable for that meal time from a larger pool.
 *   **Recipe Card:** Each card shows:
     *   Food Icon (Emoji)
     *   Title (e.g., "Bear Omurice")
@@ -41,7 +44,7 @@ This document outlines the plan for transforming the project into a "Cute Cookin
 *   **Web Components:**
     *   `<recipe-card>`: Displays individual recipe details.
     *   `<recipe-list>`: Container for the cards.
-*   **Data:** Hardcoded array of recipe objects in `main.js`.
+*   **Data:** Expanded array of recipe objects in `main.js`, categorized by meal time (morning, lunch, dinner).
 
 ## Current Plan: Initial Implementation
 
