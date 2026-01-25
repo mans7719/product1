@@ -171,7 +171,13 @@ const translations = {
         placeholder_name: "예: 곰돌이 식당",
         placeholder_email: "example@mail.com",
         placeholder_message: "제휴 제안 내용을 적어주세요!",
-        btn_submit: "보내기 ✨"
+        btn_submit: "보내기 ✨",
+        info_title_1: "🍱 왜 귀여운 밥상이 좋을까요?",
+        info_p_1: "음식의 맛도 중요하지만, <strong>시각적인 즐거움</strong>은 식사 시간을 더욱 행복하게 만들어줍니다. 특히 '캐릭터 도시락'이나 예쁜 플레이팅은 편식하는 아이들에게도 효과적이며, 지친 하루를 보내는 어른들에게도 작은 위로가 됩니다.",
+        info_title_2: "🥕 건강하고 신선한 재료",
+        info_p_2: "귀여움뿐만 아니라 영양 균형도 놓치지 않습니다. 제철 과일과 채소를 활용한 레시피로 비타민을 채우고, 자극적이지 않은 조리법으로 건강한 한 끼를 제안합니다.",
+        link_about: "소개 (About)",
+        link_privacy: "개인정보처리방침 (Privacy)"
     },
     en: {
         title: "🍽️ What to Eat?",
@@ -191,11 +197,17 @@ const translations = {
         placeholder_name: "e.g., Bear Restaurant",
         placeholder_email: "example@mail.com",
         placeholder_message: "Please write your proposal here!",
-        btn_submit: "Submit ✨"
+        btn_submit: "Submit ✨",
+        info_title_1: "🍱 Why Cute Meals?",
+        info_p_1: "Taste is important, but <strong>visual joy</strong> makes mealtime even happier. Especially 'Character Bentos' or pretty plating are effective for picky eaters and provide small comfort to adults after a long day.",
+        info_title_2: "🥕 Healthy & Fresh Ingredients",
+        info_p_2: "We don't miss nutritional balance for cuteness. We suggest healthy meals with seasonal fruits and vegetables, using non-stimulating cooking methods.",
+        link_about: "About Us",
+        link_privacy: "Privacy Policy"
     }
 };
 
-let currentLang = "ko"; // Default language
+let currentLang = localStorage.getItem('lang') || "ko"; // Load language preference
 let currentFilter = "all"; // Current filter state
 
 // Utility: Shuffle Array and Pick N items
@@ -397,6 +409,7 @@ class RecipeCard extends HTMLElement {
 // Recipe List Component
 class RecipeList extends HTMLElement {
     connectedCallback() {
+        this.updateLanguage(); // Apply language on connect
         this.renderRecipes('all');
         
         // 필터 버튼 이벤트
@@ -414,6 +427,7 @@ class RecipeList extends HTMLElement {
         const langBtn = document.getElementById('lang-toggle');
         langBtn.addEventListener('click', () => {
             currentLang = currentLang === 'ko' ? 'en' : 'ko';
+            localStorage.setItem('lang', currentLang); // Persist preference
             this.updateLanguage();
             this.renderRecipes(currentFilter); // 현재 필터 상태 유지하며 다시 그리기
         });
@@ -431,6 +445,20 @@ class RecipeList extends HTMLElement {
         document.getElementById('btn-dinner').textContent = t.btn_dinner;
         document.getElementById('footer-text').textContent = t.footer;
         document.getElementById('lang-toggle').textContent = t.lang_btn;
+
+        // 정보 섹션 업데이트
+        if (document.getElementById('info-title-1')) {
+            document.getElementById('info-title-1').textContent = t.info_title_1;
+            document.getElementById('info-p-1').innerHTML = t.info_p_1;
+            document.getElementById('info-title-2').textContent = t.info_title_2;
+            document.getElementById('info-p-2').innerHTML = t.info_p_2;
+        }
+
+        // 푸터 링크 업데이트
+        if (document.getElementById('link-about')) {
+            document.getElementById('link-about').textContent = t.link_about;
+            document.getElementById('link-privacy').textContent = t.link_privacy;
+        }
 
         // 제휴 문의 폼 업데이트
         document.getElementById('contact-title').textContent = t.contact_title;
