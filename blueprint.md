@@ -30,6 +30,9 @@ This document outlines the plan for transforming the project into a "Cute Cookin
 *   **Internationalization (Global Support):**
     *   Language toggle button (🇰🇷 Korean ↔ 🇺🇸 English).
     *   Translates all UI elements and recipe content dynamically.
+*   **Google AdSense Integration:**
+    *   Added verification meta tag and auto-ads script.
+    *   Included `ads.txt` for publisher verification.
 *   **Recipe Card:** Each card shows:
     *   Food Icon (Emoji)
     *   Title (e.g., "Bear Omurice")
