@@ -49,10 +49,9 @@ This document outlines the plan for transforming the project into a "Cute Cookin
     *   `<recipe-list>`: Container for the cards.
 *   **Data:** Expanded array of recipe objects in `main.js`, categorized by meal time (morning, lunch, dinner).
 
-## Current Plan: Initial Implementation
+## Current Plan: Affiliate Inquiry Form Implementation
 
-1.  **Update `index.html`:** Setup the document structure, import fonts, and add the main container.
-2.  **Update `style.css`:** Implement the pastel theme, CSS variables, and global styles.
-3.  **Update `main.js`:**
-    *   Define the `RecipeCard` and `RecipeList` custom elements.
-    *   Populate the app with 5 cute recipes.
+1.  **Add Form to `index.html`:** Create a new section for the affiliate inquiry form using Formspree.
+2.  **Style Form in `style.css`:** Apply the "Cute & Cozy" theme to the form elements (inputs, textarea, button).
+3.  **Update `main.js` (Optional):** Add success/error handling or multi-language support for the form labels.
+4.  **Verify:** Test the form layout and ensure it matches the overall aesthetic.

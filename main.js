@@ -162,7 +162,16 @@ const translations = {
         btn_dinner: "🌙 저녁",
         footer: "Made with 💖 & 🍭",
         lang_btn: "🇺🇸 English",
-        ingredients_label: "🧺 준비물"
+        ingredients_label: "🧺 준비물",
+        contact_title: "🤝 제휴 문의",
+        contact_subtitle: "함께 맛있는 이야기를 만들어갈 파트너를 찾아요!",
+        label_name: "성함/업체명",
+        label_email: "이메일 주소",
+        label_message: "문의 내용",
+        placeholder_name: "예: 곰돌이 식당",
+        placeholder_email: "example@mail.com",
+        placeholder_message: "제휴 제안 내용을 적어주세요!",
+        btn_submit: "보내기 ✨"
     },
     en: {
         title: "🍽️ What to Eat?",
@@ -173,7 +182,16 @@ const translations = {
         btn_dinner: "🌙 Dinner",
         footer: "Made with 💖 & 🍭",
         lang_btn: "🇰🇷 한국어",
-        ingredients_label: "🧺 Ingredients"
+        ingredients_label: "🧺 Ingredients",
+        contact_title: "🤝 Affiliate Inquiry",
+        contact_subtitle: "Looking for partners to create delicious stories together!",
+        label_name: "Name/Company",
+        label_email: "Email Address",
+        label_message: "Message",
+        placeholder_name: "e.g., Bear Restaurant",
+        placeholder_email: "example@mail.com",
+        placeholder_message: "Please write your proposal here!",
+        btn_submit: "Submit ✨"
     }
 };
 
@@ -413,6 +431,19 @@ class RecipeList extends HTMLElement {
         document.getElementById('btn-dinner').textContent = t.btn_dinner;
         document.getElementById('footer-text').textContent = t.footer;
         document.getElementById('lang-toggle').textContent = t.lang_btn;
+
+        // 제휴 문의 폼 업데이트
+        document.getElementById('contact-title').textContent = t.contact_title;
+        document.getElementById('contact-subtitle').textContent = t.contact_subtitle;
+        document.getElementById('label-name').textContent = t.label_name;
+        document.getElementById('label-email').textContent = t.label_email;
+        document.getElementById('label-message').textContent = t.label_message;
+        document.getElementById('btn-submit').textContent = t.btn_submit;
+
+        // Placeholder 업데이트
+        document.getElementById('name').placeholder = t.placeholder_name;
+        document.getElementById('email').placeholder = t.placeholder_email;
+        document.getElementById('message').placeholder = t.placeholder_message;
 
         // HTML 태그의 lang 속성 변경 (웹 접근성)
         document.documentElement.lang = currentLang;
