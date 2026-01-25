@@ -33,7 +33,10 @@ This document outlines the plan for transforming the project into a "Cute Cookin
 *   **Google AdSense Integration:**
     *   Added verification meta tag and auto-ads script.
     *   Included `ads.txt` for publisher verification.
-    *   **Content Optimization:** Added `privacy.html`, `about.html`, and static SEO content to `index.html` to meet "High Quality Site" guidelines.
+    *   **Content Optimization:** Added `privacy.html`, `about.html`, and static SEO content to `index.html`.
+*   **Guestbook (Comment Section):**
+    *   Replaced the affiliate inquiry form with a local storage-based guestbook.
+    *   Users can leave a nickname and comment (stored in browser).
 *   **Recipe Card:** Each card shows:
     *   Food Icon (Emoji)
     *   Title (e.g., "Bear Omurice")

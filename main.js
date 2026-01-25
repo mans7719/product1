@@ -177,7 +177,12 @@ const translations = {
         info_title_2: "🥕 건강하고 신선한 재료",
         info_p_2: "귀여움뿐만 아니라 영양 균형도 놓치지 않습니다. 제철 과일과 채소를 활용한 레시피로 비타민을 채우고, 자극적이지 않은 조리법으로 건강한 한 끼를 제안합니다.",
         link_about: "소개 (About)",
-        link_privacy: "개인정보처리방침 (Privacy)"
+        link_privacy: "개인정보처리방침 (Privacy)",
+        comment_title: "💬 방명록",
+        comment_subtitle: "맛있는 레시피 후기를 남겨주세요!",
+        placeholder_comment_name: "닉네임",
+        placeholder_comment_text: "내용을 입력해주세요...",
+        btn_comment: "등록하기 ✨"
     },
     en: {
         title: "🍽️ What to Eat?",
@@ -189,21 +194,17 @@ const translations = {
         footer: "Made with 💖 & 🍭",
         lang_btn: "🇰🇷 한국어",
         ingredients_label: "🧺 Ingredients",
-        contact_title: "🤝 Affiliate Inquiry",
-        contact_subtitle: "Looking for partners to create delicious stories together!",
-        label_name: "Name/Company",
-        label_email: "Email Address",
-        label_message: "Message",
-        placeholder_name: "e.g., Bear Restaurant",
-        placeholder_email: "example@mail.com",
-        placeholder_message: "Please write your proposal here!",
-        btn_submit: "Submit ✨",
         info_title_1: "🍱 Why Cute Meals?",
         info_p_1: "Taste is important, but <strong>visual joy</strong> makes mealtime even happier. Especially 'Character Bentos' or pretty plating are effective for picky eaters and provide small comfort to adults after a long day.",
         info_title_2: "🥕 Healthy & Fresh Ingredients",
         info_p_2: "We don't miss nutritional balance for cuteness. We suggest healthy meals with seasonal fruits and vegetables, using non-stimulating cooking methods.",
         link_about: "About Us",
-        link_privacy: "Privacy Policy"
+        link_privacy: "Privacy Policy",
+        comment_title: "💬 Guestbook",
+        comment_subtitle: "Leave a review of your yummy recipe!",
+        placeholder_comment_name: "Nickname",
+        placeholder_comment_text: "Write your comment here...",
+        btn_comment: "Post ✨"
     }
 };
 
@@ -460,18 +461,14 @@ class RecipeList extends HTMLElement {
             document.getElementById('link-privacy').textContent = t.link_privacy;
         }
 
-        // 제휴 문의 폼 업데이트
-        document.getElementById('contact-title').textContent = t.contact_title;
-        document.getElementById('contact-subtitle').textContent = t.contact_subtitle;
-        document.getElementById('label-name').textContent = t.label_name;
-        document.getElementById('label-email').textContent = t.label_email;
-        document.getElementById('label-message').textContent = t.label_message;
-        document.getElementById('btn-submit').textContent = t.btn_submit;
-
-        // Placeholder 업데이트
-        document.getElementById('name').placeholder = t.placeholder_name;
-        document.getElementById('email').placeholder = t.placeholder_email;
-        document.getElementById('message').placeholder = t.placeholder_message;
+        // 방명록(댓글) 업데이트
+        if (document.getElementById('comment-title')) {
+            document.getElementById('comment-title').textContent = t.comment_title;
+            document.getElementById('comment-subtitle').textContent = t.comment_subtitle;
+            document.getElementById('comment-name').placeholder = t.placeholder_comment_name;
+            document.getElementById('comment-text').placeholder = t.placeholder_comment_text;
+            document.getElementById('btn-comment').textContent = t.btn_comment;
+        }
 
         // HTML 태그의 lang 속성 변경 (웹 접근성)
         document.documentElement.lang = currentLang;
@@ -489,6 +486,112 @@ class RecipeList extends HTMLElement {
             this.appendChild(card);
         });
     }
+
+    // 댓글 시스템 로직
+    loadComments() {
+        const commentList = document.getElementById('comment-list');
+        if (!commentList) return;
+
+        const comments = JSON.parse(localStorage.getItem('guestbook_comments')) || [];
+        commentList.innerHTML = ''; // 초기화
+
+        // 최신순으로 정렬
+        comments.reverse().forEach(comment => {
+            const div = document.createElement('div');
+            div.className = 'comment-item';
+            div.innerHTML = `
+                <div class="comment-header">
+                    <span class="comment-author">${comment.name}</span>
+                    <span class="comment-date">${comment.date}</span>
+                </div>
+                <div class="comment-body">${comment.text}</div>
+            `;
+            commentList.appendChild(div);
+        });
+    }
+
+    saveComment(name, text) {
+        const comments = JSON.parse(localStorage.getItem('guestbook_comments')) || [];
+        const newComment = {
+            name: name,
+            text: text,
+            date: new Date().toLocaleDateString()
+        };
+        comments.push(newComment);
+        localStorage.setItem('guestbook_comments', JSON.stringify(comments));
+        this.loadComments(); // 목록 갱신
+    }
+}
+
+// 댓글 폼 이벤트 리스너 등록 (DOM 로드 후)
+document.addEventListener('DOMContentLoaded', () => {
+    const commentForm = document.getElementById('comment-form');
+    if (commentForm) {
+        // 초기 댓글 로드 (RecipeList 인스턴스가 없을 수도 있으므로 수동 호출 혹은 전역 함수로 분리 가능하나, 
+        // 여기서는 RecipeList가 연결될 때 호출되도록 하거나 별도로 처리)
+        // 편의상 RecipeList의 메서드를 재사용하기보다 간단히 여기서 처리하거나,
+        // RecipeList가 main logic을 주관하므로 해당 클래스 안에서 처리하는 것이 좋음.
+        // 하지만 connectedCallback은 커스텀 엘리먼트가 붙을 때 실행됨.
+        
+        // 간단한 구현을 위해 여기서는 직접 로직 수행
+        loadCommentsGlobal();
+
+        commentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nameInput = document.getElementById('comment-name');
+            const textInput = document.getElementById('comment-text');
+            
+            if (nameInput.value && textInput.value) {
+                saveCommentGlobal(nameInput.value, textInput.value);
+                nameInput.value = '';
+                textInput.value = '';
+                alert("소중한 후기 감사합니다! 💖");
+            }
+        });
+    }
+});
+
+// 전역 헬퍼 함수 (간단한 구현을 위해)
+function loadCommentsGlobal() {
+    const commentList = document.getElementById('comment-list');
+    if (!commentList) return;
+
+    const comments = JSON.parse(localStorage.getItem('guestbook_comments')) || [];
+    commentList.innerHTML = '';
+
+    comments.reverse().forEach(comment => {
+        const div = document.createElement('div');
+        div.className = 'comment-item';
+        div.innerHTML = `
+            <div class="comment-header">
+                <span class="comment-author">Bear Chef 🐻</span> <!-- 예시로 고정하거나 저장된 이름 사용 -->
+                <span class="comment-author" style="color:#6D4C41;">${comment.name}</span>
+                <span class="comment-date" style="font-weight:normal; color:#FF8A80;">${comment.date}</span>
+            </div>
+            <div class="comment-body">${comment.text}</div>
+        `;
+        // 디자인 수정: 헤더 구조
+        div.innerHTML = `
+            <div class="comment-header">
+                <span class="comment-author">🥕 ${comment.name}</span>
+                <span class="comment-date">${comment.date}</span>
+            </div>
+            <div class="comment-body">${comment.text}</div>
+        `;
+        commentList.appendChild(div);
+    });
+}
+
+function saveCommentGlobal(name, text) {
+    const comments = JSON.parse(localStorage.getItem('guestbook_comments')) || [];
+    const newComment = {
+        name: name,
+        text: text,
+        date: new Date().toLocaleDateString()
+    };
+    comments.push(newComment);
+    localStorage.setItem('guestbook_comments', JSON.stringify(comments));
+    loadCommentsGlobal();
 }
 
 customElements.define('recipe-card', RecipeCard);

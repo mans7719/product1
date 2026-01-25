@@ -173,8 +173,8 @@ footer {
     margin-bottom: 0;
 }
 
-/* Contact Form Styles */
-.contact-section {
+/* Comment Section Styles */
+.comment-section {
     margin-top: 4rem;
     width: 100%;
     background: white;
@@ -184,39 +184,29 @@ footer {
     border: 2px dashed var(--accent-color);
 }
 
-.contact-section h2 {
+.comment-section h2 {
     text-align: center;
     color: #FF9AA2;
     font-size: 2.2rem;
     margin-bottom: 0.5rem;
 }
 
-.contact-section p {
+.comment-section p {
     text-align: center;
     margin-bottom: 2rem;
     font-size: 1.2rem;
 }
 
-.contact-form {
+.comment-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-bottom: 30px;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.form-group label {
-    font-size: 1.2rem;
-    color: var(--text-color);
-    margin-left: 5px;
-}
-
-.form-group input,
-.form-group textarea {
+.input-row input,
+.input-row textarea {
+    width: 100%;
     padding: 12px 15px;
     border: 2px solid #FFDAC1;
     border-radius: 15px;
@@ -227,24 +217,23 @@ footer {
     transition: all 0.2s ease;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.input-row input:focus,
+.input-row textarea:focus {
     border-color: #FFB7B2;
     box-shadow: 0 0 0 4px rgba(255, 183, 178, 0.2);
     background-color: #FFFDF5;
 }
 
-.form-group textarea {
-    min-height: 120px;
+.input-row textarea {
+    min-height: 80px;
     resize: vertical;
 }
 
 .submit-btn {
-    margin-top: 10px;
     background-color: #FFB7B2;
     color: white;
     border: none;
-    padding: 15px;
+    padding: 12px;
     border-radius: 50px;
     font-family: 'Gamja Flower', cursive;
     font-size: 1.4rem;
@@ -259,8 +248,40 @@ footer {
     box-shadow: 0 6px 15px rgba(255, 154, 162, 0.5);
 }
 
-.submit-btn:active {
-    transform: translateY(-1px);
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-top: 2px dashed #FFDAC1;
+    padding-top: 25px;
+}
+
+.comment-item {
+    background: #FFFDF5;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #FFDAC1;
+    animation: pop 0.3s ease forwards;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #FF8A80;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #6D4C41;
+}
+
+.comment-body {
+    color: #5D4037;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    white-space: pre-wrap;
 }
 
 /* Animations */
