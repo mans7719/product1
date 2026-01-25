@@ -36,6 +36,8 @@ This document outlines the plan for transforming the project into a "Cute Cookin
     *   **Content Optimization:** Added `privacy.html`, `about.html`, and static SEO content to `index.html`.
 *   **Google Analytics (GA4):**
     *   Integrated Global Site Tag (gtag.js) across all HTML pages for traffic analysis.
+*   **Microsoft Clarity:**
+    *   Added Clarity tracking script for heatmaps and user session recording.
 *   **Guestbook (Comment Section):**
     *   Replaced the affiliate inquiry form with a local storage-based guestbook.
     *   Users can leave a nickname and comment (stored in browser).
