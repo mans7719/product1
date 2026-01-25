@@ -124,6 +124,53 @@ footer {
     font-size: 1.2rem;
     opacity: 0.7;
     padding-bottom: 2rem;
+    text-align: center;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Info Section (For SEO & Content Quality) */
+.info-section {
+    margin-top: 3rem;
+    width: 100%;
+    background: #FFF9E6;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #FFDAC1;
+}
+
+.info-section h3 {
+    color: #6D4C41;
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.info-section p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #795548;
+    margin-bottom: 20px;
+}
+
+.info-section p:last-child {
+    margin-bottom: 0;
 }
 
 /* Contact Form Styles */
