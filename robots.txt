@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mans7719.github.io/product1/sitemap.xml
