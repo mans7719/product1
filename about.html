@@ -21,8 +21,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>소개 | 오늘 뭐 먹지?</title>
+    <meta name="description" content="오늘 뭐 먹지? 팀과 우리의 철학을 소개합니다. 귀엽고 건강한 레시피로 일상의 작은 즐거움을 전합니다.">
+    <link rel="canonical" href="https://classicvibe.org/about.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="소개 | 오늘 뭐 먹지?">
+    <meta property="og:description" content="오늘 뭐 먹지? 팀과 우리의 철학을 소개합니다. 귀엽고 건강한 레시피로 일상의 작은 즐거움을 전합니다.">
+    <meta property="og:image" content="https://classicvibe.org/icon.svg">
+    <meta property="og:url" content="https://classicvibe.org/about.html">
+    <meta property="og:site_name" content="오늘 뭐 먹지?">
+    <meta property="og:locale" content="ko_KR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="소개 | 오늘 뭐 먹지?">
+    <meta name="twitter:description" content="귀엽고 건강한 레시피로 일상의 작은 즐거움을 전합니다.">
+    <meta name="twitter:image" content="https://classicvibe.org/icon.svg">
+
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link rel="apple-touch-icon" href="icon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "오늘 뭐 먹지?",
+      "url": "https://classicvibe.org/",
+      "logo": "https://classicvibe.org/icon.svg",
+      "description": "귀여운 캐릭터 도시락과 쉬운 레시피를 연구하는 팀입니다."
+    }
+    </script>
+
     <style>
         .content-container {
             max-width: 800px;
@@ -47,6 +81,19 @@
             color: #FFB7B2;
             font-size: 1.2rem;
         }
+        /* Override global ul grid style */
+        .philosophy-list {
+            display: block !important; /* Force block to override generic ul grid */
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .philosophy-list li {
+            font-size: 1.3rem;
+            color: #6D4C41;
+            margin-bottom: 10px;
+            display: block; /* Ensure list items are block */
+        }
     </style>
 </head>
 <body>
@@ -66,10 +113,12 @@
                 
                 <br>
                 
-                <p>🥕 <strong>우리의 철학</strong></p>
-                <p>누구나 쉽게 만들 수 있어야 하고,</p>
-                <p>건강한 재료를 사용해야 하며,</p>
-                <p>무엇보다 <strong>귀여워야 합니다!</strong></p>
+                <h3>🥕 <strong>우리의 철학</strong></h3>
+                <ul class="philosophy-list">
+                    <li>✅ 누구나 쉽게 만들 수 있어야 하고,</li>
+                    <li>✅ 건강한 재료를 사용해야 하며,</li>
+                    <li>✅ 무엇보다 <strong>귀여워야 합니다!</strong></li>
+                </ul>
 
                 <br>
                 <p>여러분의 식탁에 작은 행복을 배달해 드릴게요. 💖</p>
@@ -92,10 +141,12 @@
                     <p>우리는 바쁜 일상 속에서도 '한 끼의 즐거움'을 잊지 않기를 바랍니다.</p>
                     <p>단순히 배를 채우는 식사가 아니라,<br>보는 것만으로도 미소가 지어지는 <strong>귀엽고 사랑스러운 레시피</strong>를 연구합니다.</p>
                     <br>
-                    <p>🥕 <strong>우리의 철학</strong></p>
-                    <p>누구나 쉽게 만들 수 있어야 하고,</p>
-                    <p>건강한 재료를 사용해야 하며,</p>
-                    <p>무엇보다 <strong>귀여워야 합니다!</strong></p>
+                    <h3>🥕 <strong>우리의 철학</strong></h3>
+                    <ul class="philosophy-list">
+                        <li>✅ 누구나 쉽게 만들 수 있어야 하고,</li>
+                        <li>✅ 건강한 재료를 사용해야 하며,</li>
+                        <li>✅ 무엇보다 <strong>귀여워야 합니다!</strong></li>
+                    </ul>
                     <br>
                     <p>여러분의 식탁에 작은 행복을 배달해 드릴게요. 💖</p>
                 `
@@ -108,10 +159,12 @@
                     <p>We hope you don't forget the 'joy of a meal' even in your busy daily life.</p>
                     <p>We research <strong>cute and lovely recipes</strong> that make you smile just by looking at them, not just filling your stomach.</p>
                     <br>
-                    <p>🥕 <strong>Our Philosophy</strong></p>
-                    <p>It should be easy for anyone to make,</p>
-                    <p>It should use healthy ingredients,</p>
-                    <p>And most of all, <strong>it must be cute!</strong></p>
+                    <h3>🥕 <strong>Our Philosophy</strong></h3>
+                    <ul class="philosophy-list">
+                        <li>✅ It should be easy for anyone to make,</li>
+                        <li>✅ It should use healthy ingredients,</li>
+                        <li>✅ And most of all, <strong>it must be cute!</strong></li>
+                    </ul>
                     <br>
                     <p>We'll deliver a little happiness to your table. 💖</p>
                 `

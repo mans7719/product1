@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>페이지를 찾을 수 없습니다 | 오늘 뭐 먹지?</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+    <style>
+        .error-container {
+            max-width: 600px;
+            margin: 100px auto;
+            text-align: center;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+        .error-emoji {
+            font-size: 6rem;
+            margin-bottom: 20px;
+        }
+        h1 { color: #FF9AA2; margin-bottom: 20px; }
+        p { font-size: 1.3rem; color: #6D4C41; margin-bottom: 30px; }
+        .home-btn {
+            background: #FFB7B2;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        .home-btn:hover { background: #FF9AA2; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <main class="error-container">
+            <div class="error-emoji">🥔</div>
+            <h1>404 Not Found</h1>
+            <p>죄송합니다. 요청하신 페이지를 찾을 수 없습니다.<br>맛있는 레시피가 있는 메인으로 돌아가시겠어요?</p>
+            <a href="/" class="home-btn">🏠 메인으로 돌아가기</a>
+        </main>
+    </div>
+</body>
+</html>

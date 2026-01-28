@@ -1,0 +1,2 @@
+# Redirect the Pages.dev subdomain to the primary domain
+https://product1-360.pages.dev/* https://classicvibe.org/:splat 301

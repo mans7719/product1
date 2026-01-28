@@ -380,9 +380,9 @@ class RecipeCard extends HTMLElement {
                     gap: 5px;
                 }
             </style>
-            <div class="card">
+            <article class="card">
                 <div class="header">
-                    <div class="emoji">${this.recipe.emoji}</div>
+                    <div class="emoji" role="img" aria-label="${title}">${this.recipe.emoji}</div>
                     <div class="info">
                         <h2>
                             ${title} 
@@ -402,7 +402,7 @@ class RecipeCard extends HTMLElement {
                         ${ingredientList}
                     </ul>
                 </div>
-            </div>
+            </article>
         `;
     }
 }

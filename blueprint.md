@@ -52,6 +52,36 @@ This document outlines the plan for transforming the project into a "Cute Cookin
     *   Hover effects on cards (scaling, bouncing).
     *   **Click Interaction:** Cards expand to show details with a smooth animation.
 
+### SEO Optimization (v1.1)
+
+*   **Domain Migration:** Updated all site URLs, canonical links, and sitemap references to `https://classicvibe.org/`.
+*   **Redirects (`_redirects`):** Created a Cloudflare Pages redirect rule to forward `product1-360.pages.dev` traffic to `https://classicvibe.org/` to prevent duplicate content issues.
+*   **Robots.txt:** Added explicit `Sitemap` directive with the new domain.
+*   **About Page (`about.html`):** Added comprehensive meta tags (Description, Canonical, Open Graph, Twitter Cards).
+*   **Accessibility:** Added `role="img"` and `aria-label` to recipe emojis in `main.js` for better screen reader support and SEO.
+
+### SEO & Performance (v1.2)
+
+*   **Custom 404 Page:** Created `404.html` with a user-friendly design and "Back to Home" button to reduce bounce rates.
+*   **Security Headers (`_headers`):** Implemented `Strict-Transport-Security` (HSTS) and other security headers for Cloudflare Pages.
+*   **Performance:** Optimized Google Fonts loading using `media="print"` (non-blocking) strategy to eliminate render-blocking resources.
+*   **Metadata:**
+    *   Updated `H1` tag in `index.html` to target keywords ("캐릭터 도시락", "쉬운 레시피") more effectively.
+    *   Added `apple-touch-icon` and ensured proper favicon linkage across all pages.
+
+### GEO Optimization (v1.3)
+
+*   **Semantic HTML:**
+    *   Refactored `<recipe-card>` to use `<article>` tags for better content definition.
+    *   Structured philosophy content in `about.html` using `<ul>` lists for improved readability by AI agents.
+*   **Structured Data (Schema Markup):**
+    *   **FAQPage:** Added JSON-LD Schema for the new FAQ section in `index.html`.
+    *   **Organization:** Added JSON-LD Schema to `about.html` to establish authority and identity.
+    *   **WebPage:** Added JSON-LD Schema to `privacy.html`.
+*   **Content Enhancements (Answer Engine Format):**
+    *   **FAQ Section:** Implemented a "Frequently Asked Questions" section using `<details>` and `<summary>` tags in `index.html` to provide direct answers.
+    *   **Philosophy List:** Converted narrative text into structured lists in `about.html`.
+
 ### Technical Architecture
 
 *   **Framework-less:** Pure HTML, CSS, JS.
@@ -59,10 +89,3 @@ This document outlines the plan for transforming the project into a "Cute Cookin
     *   `<recipe-card>`: Displays individual recipe details.
     *   `<recipe-list>`: Container for the cards.
 *   **Data:** Expanded array of recipe objects in `main.js`, categorized by meal time (morning, lunch, dinner).
-
-## Current Plan: Affiliate Inquiry Form Implementation
-
-1.  **Add Form to `index.html`:** Create a new section for the affiliate inquiry form using Formspree.
-2.  **Style Form in `style.css`:** Apply the "Cute & Cozy" theme to the form elements (inputs, textarea, button).
-3.  **Update `main.js` (Optional):** Add success/error handling or multi-language support for the form labels.
-4.  **Verify:** Test the form layout and ensure it matches the overall aesthetic.
